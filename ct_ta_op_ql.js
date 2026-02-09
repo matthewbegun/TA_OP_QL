@@ -48,18 +48,19 @@ var quaternaryEntries = [];
 for (let i = 0; i < 8; i++) {
 	quaternaryEntries.push(new QuaternaryEntry("τ_" + (i + 1), 0));
 }
+const decay = [
+	30.1935671759384,
+	37.4972532637665,
+	30.7608639120181,
+	44.9544911685781,
+	39.2687021300084,
+	102.119195226465,
+	26.7695950304505,
+	17.6476778516314
+];
 var getQuaternaryEntries = () => {
 
-	let decay = [
-		30.1935671759384,
-		37.4972532637665,
-		30.7608639120181,
-		44.9544911685781,
-		39.2687021300084,
-		102.119195226465,
-		26.7695950304505,
-		17.6476778516314
-	];
+	// let decay = decay;
 	let timeMult = [
 		1, 
 		10.2, 
@@ -94,12 +95,6 @@ var getQuaternaryEntries = () => {
 		tauH = base[i] * R9 ** (1 / timeMult[i]) / 2 ** ((tau - requirements[i]) / decay[i]);
 		quaternaryEntries[i].value = formatQValue(tauH * overpush[i]);
 	}
-
-
-	// for (let i = game.researchUpgrades[7].level; i < 8; i++) {
-	// 	quaternaryEntries[i].value = formatQValue(0);
-	// }
-	
 
     return quaternaryEntries;
 	
