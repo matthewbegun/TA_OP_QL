@@ -60,7 +60,15 @@ var getQuaternaryEntries = () => {
 		26.7695950304505,
 		17.6476778516314
 	];
-	let timeMult = [1, 10.2, 1, 1.5, 1, 3, 1, 1];
+	let timeMult = [
+		1, 
+		10.2, 
+		1, 
+		1.5, 
+		1, 
+		3, 
+		1, 
+		1];
 	let base = [
 		2.59,
 		11.4,
@@ -72,6 +80,8 @@ var getQuaternaryEntries = () => {
 		4.93
 	];
 		
+	var overpush = [1,10,1,1.4,1,3,1,1];
+
 	let tau;
 	let tauH;	
 		
@@ -82,41 +92,18 @@ var getQuaternaryEntries = () => {
 			tau = 1;
 		}
 		tauH = base[i] * R9 ** (1 / timeMult[i]) / 2 ** ((tau - requirements[i]) / decay[i]);
-		quaternaryEntries[i].value = formatQValue(tauH);
+		quaternaryEntries[i].value = formatQValue(tauH * overpush[i]);
 	}
-	for (let i = game.researchUpgrades[7].level; i < 8; i++) {
-		quaternaryEntries[i].value = formatQValue(0);
-	}
-	
-	// // T4 low tau check
-	// if (game.researchUpgrades[7].level < 4) return quaternaryEntries;
-	
-	// decay = 27.0085302950228;
-	// base = 1.51;
-	// timeMult = 1;
-	
-	// try {
-	// 	tau = game.theories[3].tauPublished.log10();
-	// } catch(e) {
-	// 	tau = 1;
+
+
+// let value = parseFloat(theory.quaternaryValue(i))*overpush[i];
+
+
+
+	// for (let i = game.researchUpgrades[7].level; i < 8; i++) {
+	// 	quaternaryEntries[i].value = formatQValue(0);
 	// }
-	// tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[3]) / decay);
-	// quaternaryEntries[3].value = formatQValue(Math.max(tauH, quaternaryEntries[3].value));
 	
-	// // T6 low tau check
-	// if (game.researchUpgrades[7].level < 6) return quaternaryEntries;
-	
-	// decay = 70.0732254255212;
-	// base = 7;
-	// timeMult = 2;
-	
-	// try {
-	// 	tau = game.theories[5].tauPublished.log10();
-	// } catch(e) {
-	// 	tau = 1;
-	// }
-	// tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[5]) / decay);
-	// quaternaryEntries[5].value = formatQValue(Math.max(tauH, quaternaryEntries[5].value));
 
     return quaternaryEntries;
 	
@@ -164,7 +151,6 @@ function buyMilestones() {
 	
 }
 
-var overpush = [1,10,1,1.4,1,3,1,1];
 
 function switchTheory(manualSwitch = false) {
 	
