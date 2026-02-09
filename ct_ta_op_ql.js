@@ -88,35 +88,35 @@ var getQuaternaryEntries = () => {
 		quaternaryEntries[i].value = formatQValue(0);
 	}
 	
-	// T4 low tau check
-	if (game.researchUpgrades[7].level < 4) return quaternaryEntries;
+	// // T4 low tau check
+	// if (game.researchUpgrades[7].level < 4) return quaternaryEntries;
 	
-	decay = 27.0085302950228;
-	base = 1.51;
-	timeMult = 1;
+	// decay = 27.0085302950228;
+	// base = 1.51;
+	// timeMult = 1;
 	
-	try {
-		tau = game.theories[3].tauPublished.log10();
-	} catch(e) {
-		tau = 1;
-	}
-	tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[3]) / decay);
-	quaternaryEntries[3].value = formatQValue(Math.max(tauH, quaternaryEntries[3].value));
+	// try {
+	// 	tau = game.theories[3].tauPublished.log10();
+	// } catch(e) {
+	// 	tau = 1;
+	// }
+	// tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[3]) / decay);
+	// quaternaryEntries[3].value = formatQValue(Math.max(tauH, quaternaryEntries[3].value));
 	
-	// T6 low tau check
-	if (game.researchUpgrades[7].level < 6) return quaternaryEntries;
+	// // T6 low tau check
+	// if (game.researchUpgrades[7].level < 6) return quaternaryEntries;
 	
-	decay = 70.0732254255212;
-	base = 7;
-	timeMult = 2;
+	// decay = 70.0732254255212;
+	// base = 7;
+	// timeMult = 2;
 	
-	try {
-		tau = game.theories[5].tauPublished.log10();
-	} catch(e) {
-		tau = 1;
-	}
-	tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[5]) / decay);
-	quaternaryEntries[5].value = formatQValue(Math.max(tauH, quaternaryEntries[5].value));
+	// try {
+	// 	tau = game.theories[5].tauPublished.log10();
+	// } catch(e) {
+	// 	tau = 1;
+	// }
+	// tauH = base * R9 ** (1 / timeMult) / 2 ** ((tau - requirements[5]) / decay);
+	// quaternaryEntries[5].value = formatQValue(Math.max(tauH, quaternaryEntries[5].value));
 
     return quaternaryEntries;
 	
