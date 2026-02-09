@@ -80,7 +80,7 @@ var getQuaternaryEntries = () => {
 		4.93
 	];
 		
-	var overpush = [1,10,1,1.4,1,3,1,1];
+	let overpush = [1,10,1,1.4,1,3,1,1];
 
 	let tau;
 	let tauH;	
@@ -94,10 +94,6 @@ var getQuaternaryEntries = () => {
 		tauH = base[i] * R9 ** (1 / timeMult[i]) / 2 ** ((tau - requirements[i]) / decay[i]);
 		quaternaryEntries[i].value = formatQValue(tauH * overpush[i]);
 	}
-
-
-// let value = parseFloat(theory.quaternaryValue(i))*overpush[i];
-
 
 
 	// for (let i = game.researchUpgrades[7].level; i < 8; i++) {
@@ -151,9 +147,12 @@ function buyMilestones() {
 	
 }
 
+var overpush = [1,10,1,1.4,1,3,1,1];
 
 function switchTheory(manualSwitch = false) {
 	
+
+
 	theory.invalidateQuaternaryValues();
 	
 	if (!enableTheorySwitch.level && !manualSwitch) return;
