@@ -1,8 +1,8 @@
-var id = "theory_auto_Over";
-var name = "Theory automator - Overpush";
-var description = "Automates purchases and publications in theories.";
-var authors = "rus9384";
-var version = "1.6b";
+var id = "ct_ta_op_ql";
+var name = "Something Something CT";
+var description = "Automates purchases and publications in theories; something something QoL.";
+var authors = "matthewbegun";
+var version = "0.0.1";
 var permissions = Permissions.PERFORM_GAME_ACTIONS;
 
 var theoryManager;
