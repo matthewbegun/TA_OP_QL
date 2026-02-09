@@ -162,7 +162,8 @@ function switchTheory(manualSwitch = false) {
 	let max  = 0;
 	for (let i = 0; i < Math.min(8, game.researchUpgrades[7].level); i++) {
 		if (!theory.upgrades[i].level) continue;
-		let value = parseFloat(theory.quaternaryValue(i))*overpush[i];
+		let value = parseFloat(theory.quaternaryValue(i));
+		// let value = parseFloat(theory.quaternaryValue(i))*overpush[i];
 		if (value > max) {
 			iMax = i;
 			max = value;
